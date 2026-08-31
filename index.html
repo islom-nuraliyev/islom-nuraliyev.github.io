@@ -1,892 +1,3045 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Islom Nuraliyev | Academic Portfolio</title>
-
-    <meta name="description" content="Islom Nuraliyev — pedagogika, testologiya va ta'lim sifati bo'yicha akademik portfolio.">
-    <meta name="author" content="Islom Nuraliyev">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-            background: #f6f8fc;
-            color: #172033;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* NAVBAR */
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid #e7eaf0;
-        }
-
-        .nav-container {
-            max-width: 1180px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: #3157d5;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 600;
-            color: #4b5568;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #3157d5;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 25px 70px;
-            background:
-                radial-gradient(circle at 80% 20%, rgba(49,87,213,.13), transparent 30%),
-                radial-gradient(circle at 10% 80%, rgba(90,120,230,.10), transparent 30%),
-                #f8faff;
-        }
-
-        .hero-container {
-            max-width: 1180px;
-            width: 100%;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 15px;
-            border-radius: 30px;
-            background: #e9efff;
-            color: #3157d5;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 82px);
-            line-height: 0.98;
-            letter-spacing: -4px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: #3157d5;
-        }
-
-        .hero-description {
-            max-width: 650px;
-            font-size: 19px;
-            color: #596579;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 23px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 14px;
-            transition: .3s;
-            border: 1px solid #dfe4ed;
-        }
-
-        .btn-primary {
-            background: #3157d5;
-            color: white;
-            border-color: #3157d5;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(49,87,213,.25);
-        }
-
-        .btn-secondary {
-            background: white;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-        }
-
-        /* PROFILE CARD */
-
-        .profile-card {
-            background: white;
-            padding: 35px;
-            border-radius: 25px;
-            box-shadow: 0 25px 70px rgba(24,39,75,.12);
-            text-align: center;
-            border: 1px solid #edf0f5;
-        }
-
-        .profile-circle {
-            width: 190px;
-            height: 190px;
-            margin: auto auto 25px;
-            border-radius: 50%;
-            background: linear-gradient(135deg,#3157d5,#7894ed);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 65px;
-            font-weight: 800;
-        }
-
-        .profile-card h3 {
-            font-size: 24px;
-            margin-bottom: 6px;
-        }
-
-        .profile-card p {
-            color: #697386;
-            font-size: 14px;
-        }
-
-        /* SECTIONS */
-
-        section {
-            padding: 100px 25px;
-        }
-
-        .container {
-            max-width: 1180px;
-            margin: auto;
-        }
-
-        .section-label {
-            color: #3157d5;
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-size: 42px;
-            letter-spacing: -1.5px;
-            margin-bottom: 20px;
-        }
-
-        .section-intro {
-            color: #687386;
-            max-width: 700px;
-            margin-bottom: 45px;
-        }
-
-        /* ABOUT */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .info-card {
-            background: white;
-            padding: 32px;
-            border-radius: 18px;
-            border: 1px solid #e8ebf1;
-            transition: .3s;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(30,40,70,.08);
-        }
-
-        .info-card h3 {
-            margin-bottom: 12px;
-            font-size: 21px;
-        }
-
-        .info-card p {
-            color: #697386;
-        }
-
-        /* RESEARCH */
-
-        .research {
-            background: #111827;
-            color: white;
-        }
-
-        .research .section-intro {
-            color: #aab3c4;
-        }
-
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 20px;
-        }
-
-        .research-card {
-            padding: 30px;
-            border-radius: 18px;
-            background: #1a2334;
-            border: 1px solid #29344a;
-            transition: .3s;
-        }
-
-        .research-card:hover {
-            transform: translateY(-6px);
-            border-color: #5d7be0;
-        }
-
-        .research-number {
-            font-size: 14px;
-            color: #7f9bf0;
-            font-weight: 800;
-            margin-bottom: 18px;
-        }
-
-        .research-card h3 {
-            margin-bottom: 12px;
-        }
-
-        .research-card p {
-            color: #aab3c4;
-            font-size: 14px;
-        }
-
-        /* STATS */
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 18px;
-            margin-top: 40px;
-        }
-
-        .stat {
-            background: white;
-            padding: 30px;
-            text-align: center;
-            border-radius: 16px;
-            border: 1px solid #e7eaf0;
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 38px;
-            color: #3157d5;
-            margin-bottom: 5px;
-        }
-
-        .stat span {
-            font-size: 13px;
-            color: #737d90;
-        }
-
-        /* PUBLICATIONS */
-
-        .publication {
-            background: white;
-            padding: 27px;
-            border-radius: 15px;
-            border: 1px solid #e6e9ef;
-            margin-bottom: 15px;
-        }
-
-        .publication small {
-            color: #3157d5;
-            font-weight: 700;
-        }
-
-        .publication h3 {
-            margin: 7px 0;
-        }
-
-        .publication p {
-            color: #687386;
-            font-size: 14px;
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            background: linear-gradient(135deg,#3157d5,#496de0);
-            color: white;
-            border-radius: 25px;
-            padding: 60px;
-            text-align: center;
-        }
-
-        .contact-box p {
-            max-width: 650px;
-            margin: 15px auto 30px;
-            color: #e5eaff;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            padding: 14px 25px;
-            border-radius: 10px;
-            background: white;
-            color: #3157d5;
-            font-weight: 800;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #0c1220;
-            color: #9da7b8;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-
-        @media(max-width:850px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .buttons {
-                justify-content: center;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .research-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .profile-card {
-                max-width: 400px;
-                margin: auto;
-            }
-        }
-
-        @media(max-width:500px) {
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .section-title {
-                font-size: 34px;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-box {
-                padding: 40px 20px;
-            }
-        }
-    </style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Islom Nuraliyev | Academic Research</title>
+
+<meta name="description"
+content="Islom Nuraliyev — pedagogik baholash, testologiya, pedagogik o‘lchovlar, ta’lim sifati va baholash kompetensiyasi bo‘yicha ilmiy-akademik portfolio.">
+
+<meta name="author" content="Islom Nuraliyev">
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background:#f7f9fc;
+    color:#111827;
+    line-height:1.7;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px, calc(100% - 40px));
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    z-index:1000;
+
+    background:rgba(255,255,255,.90);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid #e7ebf1;
+}
+
+.nav-inner{
+    height:76px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#3158d8;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:27px;
+    list-style:none;
+}
+
+.nav-links a{
+    font-size:13px;
+    font-weight:700;
+    color:#596579;
+
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#3158d8;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding-top:120px;
+
+    background:
+
+    radial-gradient(
+        circle at 85% 15%,
+        rgba(49,88,216,.14),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 5% 90%,
+        rgba(89,120,220,.10),
+        transparent 28%
+    ),
+
+    #f8faff;
+}
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1.3fr .7fr;
+
+    gap:80px;
+
+    align-items:center;
+}
+
+.eyebrow{
+
+    display:inline-flex;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    background:#eaf0ff;
+
+    color:#3158d8;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:1.7px;
+}
+
+.hero h1{
+
+    margin-top:25px;
+
+    font-size:
+    clamp(52px,7vw,86px);
+
+    line-height:.98;
+
+    letter-spacing:-5px;
+}
+
+.hero h1 span{
+    color:#3158d8;
+}
+
+.hero-subtitle{
+
+    max-width:750px;
+
+    margin-top:27px;
+
+    font-size:21px;
+
+    color:#5e6a7e;
+}
+
+.hero-description{
+
+    margin-top:25px;
+
+    max-width:720px;
+
+    padding-left:20px;
+
+    border-left:3px solid #3158d8;
+
+    color:#354052;
+
+    font-size:16px;
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:13px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+
+    padding:14px 23px;
+
+    border-radius:10px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.btn-primary{
+
+    color:white;
+
+    background:#3158d8;
+
+    box-shadow:
+    0 10px 25px rgba(49,88,216,.20);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+
+    background:white;
+
+    border:1px solid #dfe5ed;
+}
+
+.btn-secondary:hover{
+    transform:translateY(-3px);
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.profile-card{
+
+    padding:35px;
+
+    border-radius:25px;
+
+    background:white;
+
+    border:1px solid #e5eaf1;
+
+    box-shadow:
+    0 25px 70px rgba(20,30,60,.09);
+}
+
+.profile-avatar{
+
+    width:135px;
+    height:135px;
+
+    margin:0 auto 25px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #3158d8,
+        #7894e8
+    );
+
+    color:white;
+
+    font-size:43px;
+
+    font-weight:900;
+}
+
+.profile-card h3{
+
+    text-align:center;
+
+    font-size:22px;
+}
+
+.profile-card > p{
+
+    text-align:center;
+
+    margin-top:5px;
+
+    color:#6d788b;
+
+    font-size:13px;
+}
+
+.profile-item{
+
+    margin-top:23px;
+
+    padding-top:18px;
+
+    border-top:1px solid #edf0f4;
+}
+
+.profile-item span{
+
+    display:block;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.3px;
+
+    color:#8a94a5;
+}
+
+.profile-item strong{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   SECTION HEADINGS
+===================================================== */
+
+.section-label{
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#3158d8;
+}
+
+.section-title{
+
+    margin-top:10px;
+
+    font-size:44px;
+
+    line-height:1.15;
+
+    letter-spacing:-1.8px;
+}
+
+.section-intro{
+
+    max-width:780px;
+
+    margin-top:18px;
+
+    color:#667287;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   RESEARCH AREAS
+===================================================== */
+
+.research-areas{
+
+    background:white;
+}
+
+.area-grid{
+
+    margin-top:55px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.area-card{
+
+    padding:31px;
+
+    border-radius:18px;
+
+    border:1px solid #e5eaf1;
+
+    background:white;
+
+    transition:.3s;
+}
+
+.area-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 18px 45px rgba(20,30,60,.08);
+}
+
+.area-number{
+
+    font-size:11px;
+
+    font-weight:900;
+
+    color:#3158d8;
+}
+
+.area-card h3{
+
+    margin-top:16px;
+
+    font-size:19px;
+}
+
+.area-card p{
+
+    margin-top:10px;
+
+    color:#69758a;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   ASSESSMENT
+===================================================== */
+
+.assessment{
+
+    background:#101827;
+
+    color:white;
+}
+
+.assessment .section-intro{
+    color:#aeb8c9;
+}
+
+.assessment-grid{
+
+    margin-top:55px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:20px;
+}
+
+.assessment-card{
+
+    padding:35px;
+
+    border-radius:20px;
+
+    background:#182235;
+
+    border:1px solid #29364d;
+}
+
+.assessment-card h3{
+
+    font-size:21px;
+}
+
+.assessment-card p{
+
+    margin-top:12px;
+
+    color:#aeb8c9;
+
+    font-size:14px;
+}
+
+.assessment-card ul{
+
+    margin-top:18px;
+
+    padding-left:18px;
+
+    color:#c1c9d7;
+
+    font-size:14px;
+}
+
+.assessment-card li{
+    margin-bottom:7px;
+}
+
+
+/* =====================================================
+   DISSERTATION RESEARCH
+===================================================== */
+
+.dissertation{
+
+    background:#f7f9fc;
+}
+
+.research-statement{
+
+    margin-top:50px;
+
+    padding:40px;
+
+    background:white;
+
+    border:1px solid #e4e9f0;
+
+    border-radius:22px;
+}
+
+.research-statement h3{
+
+    font-size:23px;
+}
+
+.research-statement p{
+
+    margin-top:15px;
+
+    color:#657185;
+
+    font-size:15px;
+}
+
+.research-columns{
+
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.research-column{
+
+    padding:25px;
+
+    border-radius:15px;
+
+    background:#f8faff;
+
+    border:1px solid #e7ebf1;
+}
+
+.research-column h4{
+
+    font-size:17px;
+
+    color:#3158d8;
+}
+
+.research-column p{
+
+    margin-top:8px;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   CONCEPTUAL MODEL
+===================================================== */
+
+.model{
+
+    background:white;
+}
+
+.model-flow{
+
+    margin-top:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+.model-box{
+
+    min-width:155px;
+
+    padding:17px 20px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+    background:#f8faff;
+
+    border:1px solid #e0e6ef;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.model-arrow{
+
+    color:#3158d8;
+
+    font-size:21px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   METHODOLOGY
+===================================================== */
+
+.methodology{
+
+    background:#f7f9fc;
+}
+
+.method-grid{
+
+    margin-top:55px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:18px;
+}
+
+.method-card{
+
+    padding:28px;
+
+    background:white;
+
+    border:1px solid #e5eaf0;
+
+    border-radius:17px;
+}
+
+.method-card .number{
+
+    color:#3158d8;
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+.method-card h3{
+
+    margin-top:11px;
+
+    font-size:18px;
+}
+
+.method-card p{
+
+    margin-top:9px;
+
+    color:#69758a;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   SCIENTIFIC SOURCES
+===================================================== */
+
+.sources{
+
+    background:white;
+}
+
+.source-grid{
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.source-card{
+
+    padding:30px;
+
+    border-radius:18px;
+
+    background:#fafbfe;
+
+    border:1px solid #e5eaf1;
+}
+
+.source-card h3{
+    font-size:19px;
+}
+
+.source-card p{
+
+    margin-top:10px;
+
+    color:#69758a;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   PUBLICATIONS
+===================================================== */
+
+.publications{
+
+    background:white;
+}
+
+.publication{
+
+    margin-top:40px;
+
+    padding:28px 30px;
+
+    border-radius:17px;
+
+    background:#f8faff;
+
+    border:1px solid #e3e8f0;
+}
+
+.pub-type{
+
+    color:#3158d8;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+}
+
+.publication h3{
+
+    margin-top:8px;
+
+    font-size:20px;
+}
+
+.publication p{
+
+    margin-top:8px;
+
+    color:#687489;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   TEACHING
+===================================================== */
+
+.teaching{
+
+    background:#f7f9fc;
+}
+
+.teaching-grid{
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.teaching-card{
+
+    padding:30px;
+
+    border-radius:18px;
+
+    background:white;
+
+    border:1px solid #e5eaf1;
+}
+
+.teaching-card h3{
+    font-size:19px;
+}
+
+.teaching-card p{
+
+    margin-top:10px;
+
+    color:#69758a;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   QUALITY & ACCREDITATION
+===================================================== */
+
+.quality{
+
+    background:#101827;
+
+    color:white;
+}
+
+.quality .section-intro{
+    color:#adb7c8;
+}
+
+.quality-grid{
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.quality-card{
+
+    padding:30px;
+
+    background:#182235;
+
+    border:1px solid #29364d;
+
+    border-radius:18px;
+}
+
+.quality-card h3{
+    font-size:19px;
+}
+
+.quality-card p{
+
+    margin-top:10px;
+
+    color:#aeb8c9;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   PROFESSIONAL PORTFOLIO
+===================================================== */
+
+.portfolio{
+
+    background:white;
+}
+
+.portfolio-grid{
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.portfolio-card{
+
+    min-height:190px;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    background:#f8faff;
+
+    border:1px solid #e4e9f0;
+
+    transition:.3s;
+}
+
+.portfolio-card:hover{
+    transform:translateY(-5px);
+}
+
+.portfolio-card span{
+
+    font-size:11px;
+
+    font-weight:900;
+
+    color:#3158d8;
+}
+
+.portfolio-card h3{
+
+    margin-top:15px;
+
+    font-size:19px;
+}
+
+.portfolio-card p{
+
+    margin-top:8px;
+
+    color:#687489;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats{
+
+    margin-top:55px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:18px;
+}
+
+.stat{
+
+    padding:28px;
+
+    text-align:center;
+
+    background:white;
+
+    border:1px solid #e5eaf0;
+
+    border-radius:16px;
+}
+
+.stat strong{
+
+    display:block;
+
+    font-size:35px;
+
+    color:#3158d8;
+}
+
+.stat span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#707b8e;
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact{
+
+    padding:100px 0;
+}
+
+.contact-box{
+
+    padding:65px 40px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #3158d8,
+        #5675df
+    );
+}
+
+.contact-box h2{
+
+    max-width:800px;
+
+    margin:10px auto 0;
+
+    font-size:
+    clamp(30px,4vw,46px);
+
+    line-height:1.2;
+}
+
+.contact-box p{
+
+    max-width:700px;
+
+    margin:18px auto 30px;
+
+    color:#e4e9ff;
+
+    font-size:15px;
+}
+
+.contact-button{
+
+    display:inline-block;
+
+    padding:14px 25px;
+
+    border-radius:10px;
+
+    background:white;
+
+    color:#3158d8;
+
+    font-weight:900;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:35px 20px;
+
+    background:#0c1220;
+
+    color:#8f99aa;
+
+    text-align:center;
+
+    font-size:12px;
+}
+
+footer strong{
+    color:white;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+        gap:45px;
+    }
+
+    .hero-subtitle{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-description{
+        text-align:left;
+    }
+
+    .profile-card{
+        max-width:430px;
+        margin:auto;
+    }
+
+    .area-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .assessment-grid{
+        grid-template-columns:1fr;
+    }
+
+    .research-columns{
+        grid-template-columns:1fr;
+    }
+
+    .method-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .source-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .teaching-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .quality-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .portfolio-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .container{
+        width:calc(100% - 28px);
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+    .hero{
+        padding-top:105px;
+    }
+
+    .hero h1{
+        font-size:51px;
+        letter-spacing:-3px;
+    }
+
+    .hero-subtitle{
+        font-size:18px;
+    }
+
+    .section-title{
+        font-size:34px;
+    }
+
+    .area-grid,
+    .method-grid,
+    .source-grid,
+    .teaching-grid,
+    .quality-grid,
+    .portfolio-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .model-arrow{
+        transform:rotate(90deg);
+    }
+
+    .contact-box{
+        padding:45px 20px;
+    }
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<!-- NAVIGATION -->
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
 <nav>
-    <div class="nav-container">
 
-        <a href="#home" class="logo">
-            IN<span>.</span>
-        </a>
+<div class="container nav-inner">
 
-        <ul class="nav-links">
-            <li><a href="#about">Men haqimda</a></li>
-            <li><a href="#research">Tadqiqot</a></li>
-            <li><a href="#publications">Nashrlar</a></li>
-            <li><a href="#teaching">Faoliyat</a></li>
-            <li><a href="#contact">Bog‘lanish</a></li>
-        </ul>
+<a href="#home" class="logo">
+IN<span>.</span>
+</a>
 
-    </div>
+<ul class="nav-links">
+
+<li>
+<a href="#research">
+Ilmiy yo‘nalishlar
+</a>
+</li>
+
+<li>
+<a href="#study">
+Tadqiqot
+</a>
+</li>
+
+<li>
+<a href="#methodology">
+Metodologiya
+</a>
+</li>
+
+<li>
+<a href="#publications">
+Nashrlar
+</a>
+</li>
+
+<li>
+<a href="#teaching">
+Teaching
+</a>
+</li>
+
+<li>
+<a href="#contact">
+Bog‘lanish
+</a>
+</li>
+
+</ul>
+
+</div>
+
 </nav>
 
 
-<!-- HERO -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero" id="home">
 
-    <div class="hero-container">
-
-        <div>
-
-            <div class="badge">
-                ACADEMIC • RESEARCHER • EDUCATOR
-            </div>
-
-            <h1>
-                Islom<br>
-                <span>Nuraliyev</span>
-            </h1>
-
-            <p class="hero-description">
-                Pedagogika, testologiya va ta’lim sifatini rivojlantirish
-                yo‘nalishlarida ilmiy-tadqiqot va pedagogik faoliyat olib boruvchi mutaxassis.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#about" class="btn btn-primary">
-                    Men haqimda →
-                </a>
-
-                <a href="#research" class="btn btn-secondary">
-                    Tadqiqotlar
-                </a>
-
-            </div>
-
-        </div>
+<div class="container hero-grid">
 
 
-        <div class="profile-card">
+<div>
 
-            <div class="profile-circle">
-                IN
-            </div>
-
-            <h3>Islom Nuraliyev</h3>
-
-            <p>
-                Pedagogika • Testologiya • Ta’lim sifati
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+<div class="eyebrow">
+ACADEMIC RESEARCH • EDUCATION • ASSESSMENT
+</div>
 
 
-<!-- ABOUT -->
+<h1>
 
-<section id="about">
+Islom
+<span>Nuraliyev</span>
 
-    <div class="container">
-
-        <div class="section-label">
-            About
-        </div>
-
-        <h2 class="section-title">
-            Men haqimda
-        </h2>
-
-        <p class="section-intro">
-            Ushbu platforma mening ilmiy izlanishlarim, pedagogik faoliyatim,
-            professional loyihalarim va akademik portfolioimni bir joyda jamlaydi.
-        </p>
+</h1>
 
 
-        <div class="about-grid">
+<p class="hero-subtitle">
 
-            <div class="info-card">
+Pedagogik baholash, testologiya,
+pedagogik o‘lchovlar va ta’lim
+sifatini o‘rganishga yo‘naltirilgan
+ilmiy tadqiqotlar.
 
-                <h3>🎓 Akademik faoliyat</h3>
-
-                <p>
-                    Pedagogika va ta’lim jarayonlarini takomillashtirish,
-                    kompetensiyaviy yondashuv hamda pedagogik o‘lchovlar
-                    yo‘nalishlarida faoliyat olib boraman.
-                </p>
-
-            </div>
+</p>
 
 
-            <div class="info-card">
+<p class="hero-description">
 
-                <h3>🔬 Ilmiy yo‘nalish</h3>
+<strong>Ilmiy qiziqishlar:</strong>
 
-                <p>
-                    Asosiy ilmiy qiziqishlarim testologiya, testologik
-                    kompetentlik, pedagogik diagnostika va ta’lim sifatini
-                    baholash masalalariga qaratilgan.
-                </p>
+ta’lim natijalarini baholash,
+baholash vositalarini takomillashtirish,
+pedagogik diagnostika, o‘lchash
+jarayonlari hamda bo‘lajak
+o‘qituvchilarning baholash
+faoliyatiga tayyorgarligi.
 
-            </div>
-
-
-            <div class="info-card">
-
-                <h3>📚 Ta’lim</h3>
-
-                <p>
-                    Talabalar va magistrantlar bilan ishlash, o‘quv-uslubiy
-                    materiallar yaratish hamda zamonaviy pedagogik
-                    texnologiyalarni ta’limga tatbiq etish.
-                </p>
-
-            </div>
+</p>
 
 
-            <div class="info-card">
+<div class="hero-buttons">
 
-                <h3>🏛️ Ta’lim sifati</h3>
+<a href="#research" class="btn btn-primary">
+Ilmiy yo‘nalishlar →
+</a>
 
-                <p>
-                    Akkreditatsiya, ta’lim dasturlarini takomillashtirish,
-                    sifatni ta’minlash mexanizmlari va xalqaro tajribalarni
-                    o‘rganish yo‘nalishlarida professional faoliyat.
-                </p>
+<a href="#study" class="btn btn-secondary">
+Tadqiqot haqida
+</a>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
 
-        <div class="stats">
 
-            <div class="stat">
-                <strong>01</strong>
-                <span>Ilmiy yo‘nalish</span>
-            </div>
+<div class="profile-card">
 
-            <div class="stat">
-                <strong>13</strong>
-                <span>Pedagogika ixtisosligi</span>
-            </div>
+<div class="profile-avatar">
+IN
+</div>
 
-            <div class="stat">
-                <strong>∞</strong>
-                <span>Ilmiy izlanish</span>
-            </div>
+<h3>
+Islom Nuraliyev
+</h3>
 
-            <div class="stat">
-                <strong>2026</strong>
-                <span>Academic Portfolio</span>
-            </div>
+<p>
+Academic Researcher · Educator
+</p>
 
-        </div>
 
-    </div>
+<div class="profile-item">
+
+<span>
+Research Domain
+</span>
+
+<strong>
+Pedagogika va ta’lim baholash
+</strong>
+
+</div>
+
+
+<div class="profile-item">
+
+<span>
+Scientific Interests
+</span>
+
+<strong>
+Testologiya · O‘lchov · Diagnostika
+</strong>
+
+</div>
+
+
+<div class="profile-item">
+
+<span>
+Research Orientation
+</span>
+
+<strong>
+Baholash kompetensiyasini rivojlantirish
+</strong>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- RESEARCH -->
 
-<section class="research" id="research">
+<!-- =====================================================
+     RESEARCH AREAS
+===================================================== -->
 
-    <div class="container">
+<section class="research-areas" id="research">
 
-        <div class="section-label">
-            Research
-        </div>
+<div class="container">
 
-        <h2 class="section-title">
-            Ilmiy tadqiqotlar
-        </h2>
+<div class="section-label">
+Research Focus
+</div>
 
-        <p class="section-intro">
-            Zamonaviy pedagogik tadqiqotlar, baholash va ta’lim sifatini
-            rivojlantirishga qaratilgan ilmiy izlanishlar.
-        </p>
+<h2 class="section-title">
+Ilmiy tadqiqot yo‘nalishlari
+</h2>
 
+<p class="section-intro">
 
-        <div class="research-grid">
+Tadqiqot faoliyati pedagogik baholashning
+nazariy asoslari, testologik yondashuvlar,
+pedagogik o‘lchovlar va ta’lim natijalarini
+ilmiy asosda aniqlash masalalarini
+kompleks o‘rganishga yo‘naltiriladi.
 
-            <div class="research-card">
-
-                <div class="research-number">01 / RESEARCH</div>
-
-                <h3>Testologiya va baholash</h3>
-
-                <p>
-                    Bo‘lajak o‘qituvchilarning testologik kompetentligini
-                    rivojlantirishning nazariy va metodologik asoslarini
-                    o‘rganish.
-                </p>
-
-            </div>
+</p>
 
 
-            <div class="research-card">
-
-                <div class="research-number">02 / RESEARCH</div>
-
-                <h3>Pedagogik o‘lchovlar</h3>
-
-                <p>
-                    Ta’lim natijalarini obyektiv baholash, diagnostika,
-                    test topshiriqlarini ishlab chiqish va pedagogik
-                    o‘lchovlar masalalari.
-                </p>
-
-            </div>
+<div class="area-grid">
 
 
-            <div class="research-card">
+<div class="area-card">
 
-                <div class="research-number">03 / RESEARCH</div>
+<div class="area-number">01</div>
 
-                <h3>Ta’lim sifati</h3>
+<h3>
+📊 Pedagogik baholash
+</h3>
 
-                <p>
-                    Ta’lim dasturlari, akkreditatsiya va sifatni ta’minlash
-                    tizimlarini zamonaviy yondashuvlar asosida takomillashtirish.
-                </p>
+<p>
 
-            </div>
+Ta’lim jarayonida o‘quv natijalarini
+aniqlash, mezonlar asosida baholash,
+natijalarni talqin qilish va ulardan
+pedagogik qarorlar qabul qilishda
+foydalanish masalalari.
 
-        </div>
+</p>
 
-    </div>
+</div>
+
+
+
+<div class="area-card">
+
+<div class="area-number">02</div>
+
+<h3>
+🧪 Testologiya
+</h3>
+
+<p>
+
+Test topshiriqlarini ishlab chiqish,
+ularning mazmuniy va metodik sifatini
+ta’minlash, test natijalarining
+ishonchliligi va validligini o‘rganish
+bilan bog‘liq masalalar.
+
+</p>
+
+</div>
+
+
+
+<div class="area-card">
+
+<div class="area-number">03</div>
+
+<h3>
+📐 Pedagogik o‘lchovlar
+</h3>
+
+<p>
+
+Ta’lim natijalarini miqdoriy va sifat
+jihatdan o‘lchash, o‘lchov vositalari,
+mezonlar hamda diagnostik ko‘rsatkichlarni
+ilmiy asoslash.
+
+</p>
+
+</div>
+
+
+
+<div class="area-card">
+
+<div class="area-number">04</div>
+
+<h3>
+👨‍🎓 Bo‘lajak o‘qituvchilar
+</h3>
+
+<p>
+
+Pedagogik faoliyatga tayyorlanayotgan
+talabalarning baholash jarayonini
+rejalashtirish, tashkil etish va
+natijalarni tahlil qilishga tayyorgarligi.
+
+</p>
+
+</div>
+
+
+
+<div class="area-card">
+
+<div class="area-number">05</div>
+
+<h3>
+🧠 Baholash kompetensiyasi
+</h3>
+
+<p>
+
+Pedagogning baholashga oid bilimlari,
+amaliy ko‘nikmalari, tahliliy yondashuvi,
+diagnostik qarorlari va refleksiv
+faoliyatini integratsiyalashgan holda
+o‘rganish.
+
+</p>
+
+</div>
+
+
+
+<div class="area-card">
+
+<div class="area-number">06</div>
+
+<h3>
+📈 Ta’lim sifati
+</h3>
+
+<p>
+
+Baholash natijalaridan ta’lim jarayoni
+samaradorligini aniqlash, ta’lim
+sifatini monitoring qilish va
+takomillashtirish mexanizmlarida
+foydalanish.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- PUBLICATIONS -->
 
-<section id="publications">
+<!-- =====================================================
+     SCIENTIFIC RESEARCH
+===================================================== -->
 
-    <div class="container">
+<section class="assessment" id="study">
 
-        <div class="section-label">
-            Publications
-        </div>
+<div class="container">
 
-        <h2 class="section-title">
-            Ilmiy nashrlar
-        </h2>
+<div class="section-label">
+Scientific Research
+</div>
 
-        <p class="section-intro">
-            Ilmiy maqolalar, konferensiya materiallari va boshqa
-            tadqiqot natijalari ushbu bo‘limda joylashtiriladi.
-        </p>
+<h2 class="section-title">
+Ilmiy tadqiqot
+</h2>
 
+<p class="section-intro">
 
-        <div class="publication">
+Ilmiy izlanishning umumiy konsepsiyasi
+pedagogik baholash faoliyatini zamonaviy
+kompetensiyaviy, diagnostik va o‘lchov
+yondashuvlari bilan uyg‘unlashtirishga
+asoslanadi.
 
-            <small>SCIENTIFIC ARTICLE</small>
-
-            <h3>
-                Bo‘lajak o‘qituvchilarning testologik kompetentligini
-                rivojlantirish masalalari
-            </h3>
-
-            <p>
-                Ilmiy maqola • Pedagogika • Testologiya
-            </p>
-
-        </div>
+</p>
 
 
-        <div class="publication">
+<div class="assessment-grid">
 
-            <small>CONFERENCE</small>
 
-            <h3>
-                Zamonaviy ta’limda pedagogik baholashning dolzarb masalalari
-            </h3>
+<div class="assessment-card">
 
-            <p>
-                Xalqaro konferensiya materiallari
-            </p>
+<h3>
+📊 Baholashning nazariy asoslari
+</h3>
 
-        </div>
+<p>
 
-    </div>
+Baholash pedagogik jarayonning yakuniy
+bosqichi sifatida emas, balki ta’lim
+jarayonini boshqarish va rivojlantirishga
+xizmat qiluvchi tizimli mexanizm sifatida
+ko‘rib chiqiladi.
+
+</p>
+
+<ul>
+
+<li>
+Baholashning pedagogik mohiyati
+</li>
+
+<li>
+Mezon va indikatorlar
+</li>
+
+<li>
+Baholash natijalarini talqin qilish
+</li>
+
+<li>
+Formativ va summativ baholash
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="assessment-card">
+
+<h3>
+🧪 Testologik yondashuv
+</h3>
+
+<p>
+
+Testologiya doirasida baholash vositalarini
+ilmiy loyihalash, topshiriqlarning sifat
+ko‘rsatkichlarini aniqlash va o‘lchov
+natijalarining ishonchliligini ta’minlash
+masalalari o‘rganiladi.
+
+</p>
+
+<ul>
+
+<li>
+Test topshiriqlarini konstruksiyalash
+</li>
+
+<li>
+Validlik va ishonchlilik
+</li>
+
+<li>
+Test spetsifikatsiyasi
+</li>
+
+<li>
+Topshiriqlar sifatini tahlil qilish
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="assessment-card">
+
+<h3>
+📐 Pedagogik diagnostika
+</h3>
+
+<p>
+
+Diagnostik yondashuv orqali ta’lim
+oluvchilarning mavjud holati,
+rivojlanish dinamikasi va ta’lim
+ehtiyojlarini aniqlash imkoniyatlari
+tahlil qilinadi.
+
+</p>
+
+<ul>
+
+<li>
+Diagnostik indikatorlar
+</li>
+
+<li>
+Ma’lumotlarni tahlil qilish
+</li>
+
+<li>
+Pedagogik qarorlar
+</li>
+
+<li>
+Rivojlanish dinamikasi
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="assessment-card">
+
+<h3>
+🧠 Kompetensiyaviy yondashuv
+</h3>
+
+<p>
+
+Baholash faoliyatiga oid bilim va
+ko‘nikmalarni amaliy vazifalarni
+bajarish, pedagogik vaziyatlarni
+tahlil qilish va asoslangan qaror
+qabul qilish bilan bog‘lash.
+
+</p>
+
+<ul>
+
+<li>
+Kognitiv komponent
+</li>
+
+<li>
+Faoliyat komponenti
+</li>
+
+<li>
+Tahliliy komponent
+</li>
+
+<li>
+Refleksiv komponent
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- TEACHING -->
 
-<section id="teaching" style="background:#eef2f8;">
+<!-- =====================================================
+     DISSERTATION
+===================================================== -->
 
-    <div class="container">
+<section class="dissertation" id="dissertation">
 
-        <div class="section-label">
-            Teaching & Professional Activity
-        </div>
+<div class="container">
 
-        <h2 class="section-title">
-            Pedagogik va professional faoliyat
-        </h2>
+<div class="section-label">
+Research Study
+</div>
 
-        <p class="section-intro">
-            Ta’lim, metodik faoliyat, o‘quv dasturlarini ishlab chiqish
-            va ta’lim sifatini ta’minlashga oid professional loyihalar.
-        </p>
+<h2 class="section-title">
+Dissertatsiya tadqiqoti
+</h2>
 
+<p class="section-intro">
 
-        <div class="about-grid">
+Ushbu bo‘limda tadqiqotning aniq nomi yoki
+himoyaga mo‘ljallangan maxsus ilmiy
+yechimlar ochiq e’lon qilinmaydi.
+Tadqiqot yo‘nalishi umumiy ilmiy
+konseptual doirada ifodalanadi.
 
-            <div class="info-card">
-
-                <h3>👨‍🏫 O‘qituvchilik</h3>
-
-                <p>
-                    Bakalavriat va magistratura bosqichlarida pedagogik
-                    fanlar hamda testologiya yo‘nalishidagi mashg‘ulotlar.
-                </p>
-
-            </div>
+</p>
 
 
-            <div class="info-card">
+<div class="research-statement">
 
-                <h3>📋 O‘quv dasturlari</h3>
+<h3>
+Pedagogik baholash va o‘qituvchilarning
+baholash faoliyatini takomillashtirish
+</h3>
 
-                <p>
-                    Syllabus, o‘quv dasturlari, modul va baholash
-                    mezonlarini ishlab chiqish.
-                </p>
+<p>
 
-            </div>
+Tadqiqot doirasida bo‘lajak pedagoglarning
+ta’lim natijalarini baholash, baholash
+vositalaridan foydalanish, diagnostik
+ma’lumotlarni tahlil qilish va pedagogik
+qarorlarni asoslashga tayyorgarligini
+rivojlantirish masalalari o‘rganiladi.
 
-
-            <div class="info-card">
-
-                <h3>🏛️ Akkreditatsiya</h3>
-
-                <p>
-                    Ta’lim dasturlarini baholash, o‘z-o‘zini baholash
-                    va sifatni ta’minlash hujjatlari bilan ishlash.
-                </p>
-
-            </div>
+</p>
 
 
-            <div class="info-card">
+<div class="research-columns">
 
-                <h3>💡 Innovatsiya</h3>
 
-                <p>
-                    Zamonaviy pedagogik texnologiyalar va raqamli
-                    vositalardan ta’lim jarayonida foydalanish.
-                </p>
+<div class="research-column">
 
-            </div>
+<h4>
+Nazariy yo‘nalish
+</h4>
 
-        </div>
+<p>
 
-    </div>
+Pedagogik baholash, kompetensiya,
+diagnostika va o‘lchashga oid ilmiy
+yondashuvlarni tizimlashtirish.
+
+</p>
+
+</div>
+
+
+
+<div class="research-column">
+
+<h4>
+Metodik yo‘nalish
+</h4>
+
+<p>
+
+Baholash faoliyatini rivojlantirishga
+xizmat qiluvchi metodik vositalar,
+topshiriqlar va pedagogik shart-sharoitlarni
+asoslash.
+
+</p>
+
+</div>
+
+
+
+<div class="research-column">
+
+<h4>
+Amaliy yo‘nalish
+</h4>
+
+<p>
+
+Bo‘lajak o‘qituvchilarning baholash
+faoliyatini rivojlantirish va uning
+natijalarini diagnostik mezonlar asosida
+tahlil qilish.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- CONTACT -->
 
-<section id="contact">
+<!-- =====================================================
+     CONCEPTUAL MODEL
+===================================================== -->
 
-    <div class="container">
+<section class="model" id="framework">
 
-        <div class="contact-box">
+<div class="container">
 
-            <div class="section-label" style="color:#dce4ff;">
-                Contact
-            </div>
+<div class="section-label">
+Conceptual Framework
+</div>
 
-            <h2 class="section-title">
-                Hamkorlik uchun bog‘laning
-            </h2>
+<h2 class="section-title">
+Tadqiqotning konseptual modeli
+</h2>
 
-            <p>
-                Ilmiy hamkorlik, ta’lim loyihalari, tadqiqotlar,
-                professional maslahatlar yoki boshqa akademik
-                masalalar bo‘yicha murojaat qilishingiz mumkin.
-            </p>
+<p class="section-intro">
 
-            <a href="mailto:your-email@example.com" class="contact-btn">
-                Email orqali bog‘lanish
-            </a>
+Tadqiqotning umumiy konseptual mantig‘i
+pedagogik kompetensiya, baholash faoliyati
+va testologik-o‘lchov vositalarining
+o‘zaro bog‘liqligi asosida ifodalanadi.
 
-        </div>
+</p>
 
-    </div>
+
+<div class="model-flow">
+
+
+<div class="model-box">
+Kompetensiyaviy<br>yondashuv
+</div>
+
+<div class="model-arrow">→</div>
+
+
+<div class="model-box">
+Pedagogik<br>kompetensiya
+</div>
+
+<div class="model-arrow">→</div>
+
+
+<div class="model-box">
+Baholash<br>faoliyati
+</div>
+
+<div class="model-arrow">→</div>
+
+
+<div class="model-box">
+Testologiya va<br>o‘lchov
+</div>
+
+<div class="model-arrow">→</div>
+
+
+<div class="model-box">
+Baholash<br>kompetensiyasi
+</div>
+
+<div class="model-arrow">→</div>
+
+
+<div class="model-box">
+Ta’lim<br>sifati
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =====================================================
+     METHODOLOGY
+===================================================== -->
+
+<section class="methodology" id="methodology">
+
+<div class="container">
+
+<div class="section-label">
+Research Methodology
+</div>
+
+<h2 class="section-title">
+Tadqiqot metodologiyasi
+</h2>
+
+<p class="section-intro">
+
+Tadqiqot metodologiyasi pedagogik hodisalarni
+bir tomonlama emas, balki nazariy, empirik,
+diagnostik va statistik yondashuvlarning
+o‘zaro uyg‘unligi asosida o‘rganishga
+yo‘naltiriladi.
+
+</p>
+
+
+<div class="method-grid">
+
+
+<div class="method-card">
+
+<div class="number">
+01 · NAZARIY
+</div>
+
+<h3>
+Ilmiy-nazariy tahlil
+</h3>
+
+<p>
+
+Ilmiy adabiyotlar, mavjud konsepsiyalar,
+nazariy qarashlar va ilmiy tadqiqot
+natijalarini tizimli hamda qiyosiy
+tahlil qilish.
+
+</p>
+
+</div>
+
+
+
+<div class="method-card">
+
+<div class="number">
+02 · EMPIRIK
+</div>
+
+<h3>
+Empirik o‘rganish
+</h3>
+
+<p>
+
+Pedagogik jarayon ishtirokchilarining
+baholash faoliyati, tajribasi va mavjud
+tayyorgarlik holatini aniqlashga
+qaratilgan empirik usullardan foydalanish.
+
+</p>
+
+</div>
+
+
+
+<div class="method-card">
+
+<div class="number">
+03 · DIAGNOSTIK
+</div>
+
+<h3>
+Pedagogik diagnostika
+</h3>
+
+<p>
+
+Baholash kompetensiyasining tarkibiy
+jihatlarini aniqlash, rivojlanish
+darajalarini belgilash va o‘zgarish
+dinamikasini kuzatish.
+
+</p>
+
+</div>
+
+
+
+<div class="method-card">
+
+<div class="number">
+04 · O‘LCHOV
+</div>
+
+<h3>
+Pedagogik o‘lchash
+</h3>
+
+<p>
+
+Baholash vositalarining sifatini,
+o‘lchov natijalarining ishonchliligini
+va olingan ma’lumotlarning ilmiy
+asoslanganligini tekshirish.
+
+</p>
+
+</div>
+
+
+
+<div class="method-card">
+
+<div class="number">
+05 · TAHLILIY
+</div>
+
+<h3>
+Ma’lumotlarni tahlil qilish
+</h3>
+
+<p>
+
+Tadqiqot davomida olingan ma’lumotlarni
+tizimlashtirish, taqqoslash, tahlil qilish
+va ilmiy xulosalarni shakllantirish.
+
+</p>
+
+</div>
+
+
+
+<div class="method-card">
+
+<div class="number">
+06 · MODELLASHTIRISH
+</div>
+
+<h3>
+Pedagogik modellashtirish
+</h3>
+
+<p>
+
+Tadqiqot muammosining tarkibiy qismlari,
+ularning o‘zaro aloqalari va rivojlanish
+mexanizmlarini model shaklida ifodalash.
+
+</p>
+
+</div>
+
+
+
+<div class="method-card">
+
+<div class="number">
+07 · EKSPERIMENTAL
+</div>
+
+<h3>
+Pedagogik tajriba
+</h3>
+
+<p>
+
+Nazariy va metodik yondashuvlarning
+pedagogik sharoitdagi samaradorligini
+aniqlashga yo‘naltirilgan tajriba
+ishlarini tashkil etish.
+
+</p>
+
+</div>
+
+
+
+<div class="method-card">
+
+<div class="number">
+08 · REFLEKSIV
+</div>
+
+<h3>
+Refleksiv tahlil
+</h3>
+
+<p>
+
+Baholash faoliyati natijalarini qayta
+ko‘rib chiqish, pedagogik qarorlarni
+tahlil qilish va professional rivojlanish
+imkoniyatlarini aniqlash.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCIENTIFIC SOURCES
+===================================================== -->
+
+<section class="sources" id="sources">
+
+<div class="container">
+
+<div class="section-label">
+Scientific Sources
+</div>
+
+<h2 class="section-title">
+Ilmiy manbalar
+</h2>
+
+<p class="section-intro">
+
+Tadqiqotning nazariy va metodologik bazasi
+pedagogika, psixometriya, testologiya,
+ta’limni baholash va kompetensiyaviy
+yondashuvga oid ilmiy manbalarni
+o‘rganish asosida shakllantiriladi.
+
+</p>
+
+
+<div class="source-grid">
+
+
+<div class="source-card">
+
+<h3>
+📚 Pedagogika
+</h3>
+
+<p>
+
+Pedagogik nazariya, ta’lim jarayoni,
+kompetensiyaviy yondashuv va kasbiy
+rivojlanishga oid ilmiy tadqiqotlar.
+
+</p>
+
+</div>
+
+
+
+<div class="source-card">
+
+<h3>
+📐 Psixometriya
+</h3>
+
+<p>
+
+O‘lchash nazariyasi, ishonchlilik,
+validlik, indikatorlar va statistik
+baholashga oid ilmiy manbalar.
+
+</p>
+
+</div>
+
+
+
+<div class="source-card">
+
+<h3>
+🧪 Testologiya
+</h3>
+
+<p>
+
+Testlarni ishlab chiqish, topshiriqlarni
+konstruksiyalash va test natijalarini
+ilmiy tahlil qilishga oid tadqiqotlar.
+
+</p>
+
+</div>
+
+
+
+<div class="source-card">
+
+<h3>
+📊 Educational Assessment
+</h3>
+
+<p>
+
+Ta’lim natijalarini baholash,
+formativ va summativ baholash hamda
+assessment literacy yo‘nalishidagi
+xalqaro tadqiqotlar.
+
+</p>
+
+</div>
+
+
+
+<div class="source-card">
+
+<h3>
+🔬 Pedagogik diagnostika
+</h3>
+
+<p>
+
+Ta’lim jarayonidagi diagnostik
+yondashuvlar va pedagogik qarorlarni
+asoslashga oid ilmiy adabiyotlar.
+
+</p>
+
+</div>
+
+
+
+<div class="source-card">
+
+<h3>
+🌐 Xalqaro tajriba
+</h3>
+
+<p>
+
+Ta’lim sifati, baholash tizimlari,
+o‘qituvchi kompetensiyalari va
+assessment practice bo‘yicha
+xalqaro ilmiy tajribalar.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PUBLICATIONS
+===================================================== -->
+
+<section class="publications" id="publications">
+
+<div class="container">
+
+<div class="section-label">
+Scientific Publications
+</div>
+
+<h2 class="section-title">
+Ilmiy nashrlar
+</h2>
+
+<p class="section-intro">
+
+Ilmiy maqolalar, konferensiya materiallari,
+tadqiqot natijalari va ilmiy-uslubiy
+ishlar ushbu bo‘limda tizimli ravishda
+taqdim etiladi.
+
+</p>
+
+
+<div class="publication">
+
+<div class="pub-type">
+RESEARCH AREA
+</div>
+
+<h3>
+Pedagogik baholash va testologiyaning
+zamonaviy masalalari
+</h3>
+
+<p>
+
+Ilmiy yo‘nalish · Pedagogik baholash ·
+Testologiya · Pedagogik o‘lchovlar
+
+</p>
+
+</div>
+
+
+
+<div class="publication">
+
+<div class="pub-type">
+CONFERENCE RESEARCH
+</div>
+
+<h3>
+Ta’lim natijalarini baholashning
+nazariy va amaliy jihatlari
+</h3>
+
+<p>
+
+Konferensiya materiallari ·
+Pedagogika · Ta’lim sifati
+
+</p>
+
+</div>
+
+
+
+<div class="publication">
+
+<div class="pub-type">
+ACADEMIC WORK
+</div>
+
+<h3>
+Pedagogik o‘lchov va diagnostik
+yondashuvlarning ta’limdagi ahamiyati
+</h3>
+
+<p>
+
+Ilmiy-uslubiy yo‘nalish · Assessment ·
+Educational Measurement
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TEACHING
+===================================================== -->
+
+<section class="teaching" id="teaching">
+
+<div class="container">
+
+<div class="section-label">
+Teaching & Education
+</div>
+
+<h2 class="section-title">
+Teaching faoliyati
+</h2>
+
+<p class="section-intro">
+
+Pedagogik faoliyat ilmiy tadqiqotlar bilan
+uzviy bog‘liq holda tashkil etilib,
+zamonaviy ta’lim metodlari, baholash
+vositalari va o‘quv-uslubiy yondashuvlarni
+amaliyotga tatbiq etishga yo‘naltiriladi.
+
+</p>
+
+
+<div class="teaching-grid">
+
+
+<div class="teaching-card">
+
+<h3>
+👨‍🏫 Pedagogik faoliyat
+</h3>
+
+<p>
+
+Talabalar va magistrantlar bilan ishlash,
+o‘quv jarayonini tashkil etish hamda
+zamonaviy pedagogik yondashuvlardan
+foydalanish.
+
+</p>
+
+</div>
+
+
+
+<div class="teaching-card">
+
+<h3>
+📚 O‘quv-uslubiy ishlar
+</h3>
+
+<p>
+
+O‘quv dasturlari, syllabus, amaliy
+topshiriqlar, baholash mezonlari va
+metodik materiallarni ishlab chiqish.
+
+</p>
+
+</div>
+
+
+
+<div class="teaching-card">
+
+<h3>
+🧠 Interaktiv ta’lim
+</h3>
+
+<p>
+
+Muammoli ta’lim, case-study, loyiha,
+refleksiya va boshqa zamonaviy
+pedagogik texnologiyalarni qo‘llash.
+
+</p>
+
+</div>
+
+
+
+<div class="teaching-card">
+
+<h3>
+📊 Baholash amaliyoti
+</h3>
+
+<p>
+
+Talabalarning o‘quv natijalarini
+aniqlash va baholash jarayonlarini
+ilmiy-me’yoriy asosda tashkil etish.
+
+</p>
+
+</div>
+
+
+
+<div class="teaching-card">
+
+<h3>
+💻 Raqamli ta’lim
+</h3>
+
+<p>
+
+Raqamli platformalar va zamonaviy
+texnologiyalar yordamida ta’lim
+jarayonini takomillashtirish.
+
+</p>
+
+</div>
+
+
+
+<div class="teaching-card">
+
+<h3>
+🎓 Magistratura
+</h3>
+
+<p>
+
+Magistrantlarning ilmiy-tadqiqot
+faoliyatini shakllantirish va
+mustaqil akademik izlanishlarini
+qo‘llab-quvvatlash.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUALITY & ACCREDITATION
+===================================================== -->
+
+<section class="quality" id="quality">
+
+<div class="container">
+
+<div class="section-label">
+Education Quality
+</div>
+
+<h2 class="section-title">
+Ta’lim sifati va akkreditatsiya
+</h2>
+
+<p class="section-intro">
+
+Ta’lim sifatini ta’minlash, ta’lim
+dasturlarini takomillashtirish va
+akkreditatsiya jarayonlarini ilmiy
+hamda tizimli yondashuv asosida
+o‘rganish professional faoliyatning
+muhim yo‘nalishlaridan biridir.
+
+</p>
+
+
+<div class="quality-grid">
+
+
+<div class="quality-card">
+
+<h3>
+🏛️ Akkreditatsiya
+</h3>
+
+<p>
+
+Ta’lim dasturlarining belgilangan
+standart va mezonlarga muvofiqligini
+baholash, o‘z-o‘zini baholash
+jarayonlarini tahlil qilish.
+
+</p>
+
+</div>
+
+
+
+<div class="quality-card">
+
+<h3>
+📋 Ta’lim dasturlari
+</h3>
+
+<p>
+
+Ta’lim dasturlarining maqsadlari,
+kutilayotgan natijalari, kompetensiyalari
+va baholash mexanizmlarini
+takomillashtirish.
+
+</p>
+
+</div>
+
+
+
+<div class="quality-card">
+
+<h3>
+📈 Sifat monitoringi
+</h3>
+
+<p>
+
+Ta’lim jarayonining samaradorligini
+ko‘rsatkichlar, indikatorlar va
+dalillarga asoslangan yondashuv
+orqali monitoring qilish.
+
+</p>
+
+</div>
+
+
+
+<div class="quality-card">
+
+<h3>
+🌐 Xalqaro tajriba
+</h3>
+
+<p>
+
+Xalqaro akkreditatsiya va ta’lim
+sifatini ta’minlash amaliyotlarini
+o‘rganish hamda mahalliy sharoit
+bilan qiyosiy tahlil qilish.
+
+</p>
+
+</div>
+
+
+
+<div class="quality-card">
+
+<h3>
+📊 Evidence-based Quality
+</h3>
+
+<p>
+
+Ta’lim sifati bo‘yicha qarorlarni
+ishonchli ma’lumotlar, indikatorlar
+va tahliliy dalillar asosida
+shakllantirish.
+
+</p>
+
+</div>
+
+
+
+<div class="quality-card">
+
+<h3>
+🔄 Continuous Improvement
+</h3>
+
+<p>
+
+Ta’lim jarayonini doimiy takomillashtirish,
+ichki sifat madaniyatini rivojlantirish
+va natijalarga asoslangan boshqaruv.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROFESSIONAL PORTFOLIO
+===================================================== -->
+
+<section class="portfolio" id="portfolio">
+
+<div class="container">
+
+<div class="section-label">
+Academic Portfolio
+</div>
+
+<h2 class="section-title">
+Professional portfolio
+</h2>
+
+<p class="section-intro">
+
+Ilmiy, pedagogik va metodik faoliyat
+doirasida ishlab chiqilgan materiallar,
+loyihalar va akademik natijalarni
+tizimli ravishda taqdim etish uchun
+mo‘ljallangan portfolio.
+
+</p>
+
+
+<div class="portfolio-grid">
+
+
+<div class="portfolio-card">
+
+<span>
+01 · RESEARCH
+</span>
+
+<h3>
+Ilmiy tadqiqotlar
+</h3>
+
+<p>
+
+Pedagogik baholash, testologiya va
+ta’lim o‘lchovlariga oid ilmiy
+izlanishlar.
+
+</p>
+
+</div>
+
+
+
+<div class="portfolio-card">
+
+<span>
+02 · EDUCATION
+</span>
+
+<h3>
+O‘quv materiallari
+</h3>
+
+<p>
+
+Ma’ruzalar, amaliy mashg‘ulotlar,
+topshiriqlar, testlar va metodik
+materiallar.
+
+</p>
+
+</div>
+
+
+
+<div class="portfolio-card">
+
+<span>
+03 · CURRICULUM
+</span>
+
+<h3>
+Ta’lim dasturlari
+</h3>
+
+<p>
+
+O‘quv dasturlari, modullar,
+syllabuslar va ta’lim natijalari
+bilan bog‘liq materiallar.
+
+</p>
+
+</div>
+
+
+
+<div class="portfolio-card">
+
+<span>
+04 · ASSESSMENT
+</span>
+
+<h3>
+Baholash vositalari
+</h3>
+
+<p>
+
+Test topshiriqlari, baholash
+mezonlari, rubrikalar va
+diagnostik vositalar.
+
+</p>
+
+</div>
+
+
+
+<div class="portfolio-card">
+
+<span>
+05 · QUALITY
+</span>
+
+<h3>
+Ta’lim sifati
+</h3>
+
+<p>
+
+Akkreditatsiya, sifatni ta’minlash
+va ta’lim dasturlarini baholash
+bo‘yicha ishlar.
+
+</p>
+
+</div>
+
+
+
+<div class="portfolio-card">
+
+<span>
+06 · PROJECTS
+</span>
+
+<h3>
+Ilmiy va ta’lim loyihalari
+</h3>
+
+<p>
+
+Ta’lim va ilmiy faoliyatni
+rivojlantirishga yo‘naltirilgan
+loyihalar va tashabbuslar.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<strong>01</strong>
+
+<span>
+Asosiy ilmiy yo‘nalish
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>06</strong>
+
+<span>
+Tadqiqot yo‘nalishlari
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>08</strong>
+
+<span>
+Metodologik yondashuvlar
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>∞</strong>
+
+<span>
+Ilmiy izlanish
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<div class="section-label"
+style="color:#dce4ff;">
+
+Academic Contact
+
+</div>
+
+
+<h2>
+Ilmiy hamkorlik va akademik
+muloqot uchun
+</h2>
+
+
+<p>
+
+Ilmiy tadqiqotlar, pedagogik baholash,
+ta’lim sifati, o‘quv-uslubiy loyihalar
+va akademik hamkorlik masalalari
+bo‘yicha bog‘lanish mumkin.
+
+</p>
+
+
+<a
+href="mailto:your-email@example.com"
+class="contact-button">
+
+Email orqali bog‘lanish
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-    © 2026 Islom Nuraliyev.
-    Academic & Professional Portfolio.
+<strong>
+Islom Nuraliyev
+</strong>
+
+<br>
+
+Academic Research · Education · Assessment
+
+<br><br>
+
+© 2026 All rights reserved.
 
 </footer>
 
 
 </body>
+
 </html>
